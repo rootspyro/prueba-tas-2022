@@ -1,0 +1,25 @@
+.home-container{
+  margin-top: 130px;
+}
+
+h1{
+  color: var(--purple);
+}
+
+fa-icon {
+  color: var(--green);
+}
+
+p {
+ color:  var(--secondary);
+}
+
+a {
+  background-color: var(--green);
+  border: none;
+  width: 150px;
+}
+
+a:hover {
+  background-color: #227531;
+}
