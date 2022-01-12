@@ -1,0 +1,19 @@
+h1 { 
+  color : var(--purple)
+}
+
+select { 
+  width: 75%;
+}
+
+fa-icon{
+  color: var(--green);
+}
+
+@media ( min-width: 1024px ) {
+  select { 
+    width: 15%;
+    margin-left: 20px;
+  }
+}
+

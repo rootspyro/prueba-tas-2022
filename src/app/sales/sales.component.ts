@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {faStore} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sales',
@@ -11,5 +12,7 @@ export class SalesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  faStore = faStore
 
 }

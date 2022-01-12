@@ -4,6 +4,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { HttpClientModule } from '@angular/common/http'
+
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -23,9 +25,15 @@ import { SalesComponent } from './sales/sales.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+
