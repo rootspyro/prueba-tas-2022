@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import {faStore} from '@fortawesome/free-solid-svg-icons';
 
 import { ProductService } from '../product.service'
@@ -15,7 +16,12 @@ export class SalesComponent implements OnInit {
 
   constructor(
     private productsService: ProductService
-  ) { }
+  ) {
+    this.productName = new FormControl('', [ 
+      Validators.required,
+      Validators.max(15)
+    ])
+  }
 
   ngOnInit(): void {
     this.fetchProducts()
@@ -41,4 +47,6 @@ export class SalesComponent implements OnInit {
     })
   }
 
+  //Products form 
+  productName : FormControl
 }
