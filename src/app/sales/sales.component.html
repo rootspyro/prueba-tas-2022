@@ -3,10 +3,11 @@
 	<form class="d-flex flex-wrap justify-content-center mt-4">
 		<input type="text" placeholder="nombre del producto" class="p-2 mt-3">
 		<select class="p-3 mt-3" aria-label="Default select example">
-		<option selected>Categoria</option>
-		<option value="1">One</option>
-		<option value="2">Two</option>
-		<option value="3">Three</option>
+		<option selected value="0">Categoria</option>
+		<option *ngFor="let category of categories" value="category.categori_id">{{category.name}}</option>
 		</select>
 	</form>
+	<div class="products-view d-flex flex-wrap justify-content-center mt-5 ">
+		<app-product *ngFor="let productData of productList" [product]="productData" class="m-3 mb-5"></app-product>
+	</div>
 </div>

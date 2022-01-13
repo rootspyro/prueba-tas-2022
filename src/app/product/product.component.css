@@ -1,0 +1,7 @@
+button { 
+  background-color: var(--green);
+}
+
+button:hover {
+  background-color: var(--green-hover);
+} 
