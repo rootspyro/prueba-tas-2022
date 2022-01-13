@@ -3,16 +3,38 @@ h1 {
 }
 
 select { 
-  width: 75%;
+  padding: 12px;
+  display: block;
+  width: 80%;
 }
+
+input  {
+  width: 80%;
+}
+
 
 fa-icon{
   color: var(--green);
 }
 
-@media ( min-width: 1024px ) {
+@media ( min-width: 550px ){
+  input {
+    width: 75%;
+  }
+
+  select {
+    width: 75%;
+  }
+}
+
+@media ( min-width: 700px ) {
+  input { 
+    width: 25%;
+    max-width: 250px;
+  }
   select { 
-    width: 15%;
+    width: 20%;
+    max-width: 200px;
     margin-left: 20px;
   }
 }
