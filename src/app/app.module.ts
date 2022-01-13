@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
-
-import { HttpClientModule } from '@angular/common/http'
 
 
 //COMPONENTS
@@ -32,8 +32,5 @@ import { SalesComponent } from './sales/sales.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 

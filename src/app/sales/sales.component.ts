@@ -1,18 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import {faStore} from '@fortawesome/free-solid-svg-icons';
 
+import { ProductService } from '../product.service'
+import { Product } from '../product.model';
+import { Categorie } from '../categories.model';
+
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css']
 })
+
 export class SalesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private productsService: ProductService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchProducts()
+    this.fetchCategories()
   }
 
+  productList : Product[] = []
+  categories : Categorie[] = []
+
   faStore = faStore
+
+  fetchProducts(){
+    this.productsService.getAllProducts()
+    .subscribe(products => {
+      this.productList = products
+    })
+  }
+
+  fetchCategories(){
+    this.productsService.getAllCategories()
+    .subscribe(categories => {
+      this.categories = categories
+    })
+  }
 
 }
