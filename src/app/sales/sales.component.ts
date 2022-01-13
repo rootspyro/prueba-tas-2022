@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+//import { FormControl, Validators } from '@angular/forms';
 import {faStore} from '@fortawesome/free-solid-svg-icons';
 
 import { ProductService } from '../product.service'
@@ -14,22 +14,19 @@ import { Categorie } from '../categories.model';
 
 export class SalesComponent implements OnInit {
 
+  productList : Product[] = []
+  categories : Categorie[] = []
+  searchText : any;
+
   constructor(
     private productsService: ProductService
   ) {
-    this.productName = new FormControl('', [ 
-      Validators.required,
-      Validators.max(15)
-    ])
   }
 
   ngOnInit(): void {
     this.fetchProducts()
     this.fetchCategories()
   }
-
-  productList : Product[] = []
-  categories : Categorie[] = []
 
   faStore = faStore
 
@@ -47,6 +44,13 @@ export class SalesComponent implements OnInit {
     })
   }
 
-  //Products form 
-  productName : FormControl
+  Search(){
+    if(this.searchText == "") {
+      this.ngOnInit()
+    } else {
+      this.productList = this.productList.filter(res => {
+        return res.name.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase())
+      })
+    }
+  }
 }
