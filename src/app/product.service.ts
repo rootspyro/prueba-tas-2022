@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
 import { Product } from './product.model';
-import { Categorie } from './categories.model';
+import { Category } from './categories.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,6 @@ export class ProductService {
   }
 
   getAllCategories() {
-    return this.http.get<Categorie[]>(this.url + 'categories')
+    return this.http.get<Category[]>(this.url + 'categories')
   }
 }

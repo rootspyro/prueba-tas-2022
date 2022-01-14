@@ -4,7 +4,7 @@ import {faStore} from '@fortawesome/free-solid-svg-icons';
 
 import { ProductService } from '../product.service'
 import { Product } from '../product.model';
-import { Categorie } from '../categories.model';
+import { Category } from '../categories.model';
 
 @Component({
   selector: 'app-sales',
@@ -15,8 +15,9 @@ import { Categorie } from '../categories.model';
 export class SalesComponent implements OnInit {
 
   productList : Product[] = []
-  categories : Categorie[] = []
+  categories : Category[] = []
   searchText : any;
+  searchCat : any = 0;
 
   constructor(
     private productsService: ProductService
@@ -44,13 +45,32 @@ export class SalesComponent implements OnInit {
     })
   }
 
-  Search(){
+  SearchName(){
     if(this.searchText == "") {
-      this.ngOnInit()
+      this.fetchProducts()
     } else {
       this.productList = this.productList.filter(res => {
         return res.name.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase())
       })
+    }
+  }
+
+  SearchCategory(){
+
+    let filter : any[] = []
+
+    if ( this.searchCat == 0 ) { 
+      this.fetchProducts()
+    }
+    else {
+      this.productList.map(prod => {
+        prod.categories.map(cat => {
+          if ( cat == this.searchCat ) {
+            filter.push(prod)
+          }
+        })
+      })
+      this.productList = filter
     }
   }
 }
