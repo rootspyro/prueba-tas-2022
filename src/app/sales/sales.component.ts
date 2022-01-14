@@ -14,9 +14,10 @@ import { Category } from '../categories.model';
 
 export class SalesComponent implements OnInit {
 
+  filtredProducts : Product[] = []
   productList : Product[] = []
   categories : Category[] = []
-  searchText : any;
+  searchText : any = '';
   searchCat : any = 0;
 
   constructor(
@@ -35,6 +36,7 @@ export class SalesComponent implements OnInit {
     this.productsService.getAllProducts()
     .subscribe(products => {
       this.productList = products
+      this.filtredProducts = products
     })
   }
 
@@ -46,31 +48,48 @@ export class SalesComponent implements OnInit {
   }
 
   SearchName(){
-    if(this.searchText == "") {
-      this.fetchProducts()
-    } else {
-      this.productList = this.productList.filter(res => {
-        return res.name.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase())
-      })
-    }
+    this.filtredProducts = this.filtredProducts.filter(res => {
+      return res.name.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase())
+    })
   }
 
   SearchCategory(){
 
     let filter : any[] = []
 
-    if ( this.searchCat == 0 ) { 
-      this.fetchProducts()
+    this.filtredProducts.map(prod => {
+      prod.categories.map(cat => {
+        if ( cat == this.searchCat ) {
+          filter.push(prod)
+        }
+      })
+    })
+    this.filtredProducts = filter
+  }
+
+  SearchProducts(){
+
+    this.filtredProducts = this.productList
+    
+    if ( this.searchCat == 0 ) {
+      if ( this.searchText == '' ) {
+        this.filtredProducts = this.productList
+      }
+      else {
+        this.SearchName()
+      }
     }
     else {
-      this.productList.map(prod => {
-        prod.categories.map(cat => {
-          if ( cat == this.searchCat ) {
-            filter.push(prod)
-          }
-        })
-      })
-      this.productList = filter
+
+      if ( this.searchText == '' ) {
+        this.SearchCategory()
+      }
+
+      else {
+        this.SearchCategory()
+        this.SearchName()
+      }
+
     }
   }
 }
