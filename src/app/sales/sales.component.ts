@@ -17,8 +17,9 @@ export class SalesComponent implements OnInit {
   filtredProducts : Product[] = []
   productList : Product[] = []
   categories : Category[] = []
-  searchText : any = '';
-  searchCat : any = 0;
+  searchText : string = '';
+  searchCat : number = 0;
+  searchPrice : string = '';
 
   constructor(
     private productsService: ProductService
@@ -37,6 +38,7 @@ export class SalesComponent implements OnInit {
     .subscribe(products => {
       this.productList = products
       this.filtredProducts = products
+      this.filtredProducts[7].price = '2.000'
     })
   }
 
@@ -46,6 +48,8 @@ export class SalesComponent implements OnInit {
       this.categories = categories
     })
   }
+
+  //Search Products Filter
 
   SearchName(){
     this.filtredProducts = this.filtredProducts.filter(res => {
@@ -67,27 +71,50 @@ export class SalesComponent implements OnInit {
     this.filtredProducts = filter
   }
 
+  SearchPrice(){
+    if ( this.searchPrice == "+" ) {
+      this.filtredProducts = this.filtredProducts.sort((a : Product, b : Product) => parseInt(b.price) - parseInt(a.price))
+    } 
+    if ( this.searchPrice == "-" ){
+      this.filtredProducts = this.filtredProducts.sort((a : Product, b : Product) => parseInt(a.price) - parseInt(b.price))
+    }
+  }
+
   SearchProducts(){
 
     this.filtredProducts = this.productList
+    this.filtredProducts[7].price = '2.000'
     
     if ( this.searchCat == 0 ) {
       if ( this.searchText == '' ) {
         this.filtredProducts = this.productList
+        if ( this.searchPrice != '' ) {
+          this.SearchPrice()
+        }
       }
       else {
         this.SearchName()
+        if ( this.searchPrice != '' ) {
+          this.SearchPrice()
+        }
       }
     }
     else {
 
       if ( this.searchText == '' ) {
         this.SearchCategory()
+
+        if ( this.searchPrice != '' ) {
+          this.SearchPrice()
+        }
       }
 
       else {
         this.SearchCategory()
         this.SearchName()
+        if ( this.searchPrice != '' ) {
+          this.SearchPrice()
+        }
       }
 
     }

@@ -6,6 +6,11 @@
 			<option value="0">Categoría</option>
 			<option *ngFor="let category of categories" [value]="category.categori_id">{{category.name}}</option>
 		</select>
+		<select  class="mt-3 form-select" aria-label="Default select example" [(ngModel)]="searchPrice" (ngModelChange)="SearchPrice()" [ngModelOptions]="{standalone: true}">
+			<option value="">Orden / Precio</option>
+			<option value="+">Mayor a menor</option>
+			<option value="-">Menor a mayor</option>
+		</select>
 	</form>
 	<div class="products-view d-flex flex-wrap justify-content-center mt-5 ">
 		<div *ngFor="let product of filtredProducts" class="m-5 mb-5">
