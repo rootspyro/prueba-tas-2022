@@ -1,12 +1,12 @@
 <div class="sales-container text-center">
-	<h1 class="mt-5">Vent<fa-icon [icon]="faStore"></fa-icon>s</h1>
+	<h1>Vent<fa-icon [icon]="faStore"></fa-icon>s</h1>
 	<form class="mt-4 d-flex flex-wrap justify-content-center search-hero">
 		<input type="text" placeholder="nombre del producto" class="px-3 py-2 mt-3 form-control" name="search" [(ngModel)]="searchText" (ngModelChange)="SearchProducts()" [ngModelOptions]="{standalone: true}" autocomplete="off">
 		<select  class="mt-3 form-select" aria-label="Default select example" [(ngModel)]="searchCat" (ngModelChange)="SearchProducts()" [ngModelOptions]="{standalone: true}">
 			<option value="0">Categoría</option>
 			<option *ngFor="let category of categories" [value]="category.categori_id">{{category.name}}</option>
 		</select>
-		<select  class="mt-3 form-select" aria-label="Default select example" [(ngModel)]="searchPrice" (ngModelChange)="SearchPrice()" [ngModelOptions]="{standalone: true}">
+		<select  class="mt-3 form-select" aria-label="Default select example" [(ngModel)]="searchPrice" (ngModelChange)="SearchProducts()" [ngModelOptions]="{standalone: true}">
 			<option value="">Orden / Precio</option>
 			<option value="+">Mayor a menor</option>
 			<option value="-">Menor a mayor</option>

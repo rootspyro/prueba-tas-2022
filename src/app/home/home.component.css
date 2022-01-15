@@ -4,6 +4,7 @@
 
 h1{
   color: var(--purple);
+  font-size: 2.3rem;
 }
 
 fa-icon {
@@ -22,4 +23,20 @@ a {
 
 a:hover {
   background-color: var(--green-hover);
+}
+
+@media ( min-width : 768px ){
+  h1 {
+    font-size: 3.2rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  p{
+    font-size: 1.3rem;
+  }
+
+  a{
+    font-size: 1.2rem;
+  }
 }

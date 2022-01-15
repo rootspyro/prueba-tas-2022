@@ -37,8 +37,8 @@ export class SalesComponent implements OnInit {
     this.productsService.getAllProducts()
     .subscribe(products => {
       this.productList = products
+      this.productList[7].price = "2.000"
       this.filtredProducts = products
-      this.filtredProducts[7].price = '2.000'
     })
   }
 
@@ -83,7 +83,6 @@ export class SalesComponent implements OnInit {
   SearchProducts(){
 
     this.filtredProducts = this.productList
-    this.filtredProducts[7].price = '2.000'
     
     if ( this.searchCat == 0 ) {
       if ( this.searchText == '' ) {
@@ -91,6 +90,7 @@ export class SalesComponent implements OnInit {
         if ( this.searchPrice != '' ) {
           this.SearchPrice()
         }
+
       }
       else {
         this.SearchName()

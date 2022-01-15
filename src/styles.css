@@ -1,8 +1,16 @@
 :root {
 
+  /* Colors */
   --purple : #4D375E;
   --secondary : #C627D3;
   --green : #4CB843;
   --green-hover : #227531;
+
+  /* Break Points */
+
+  --bp-small : 480px;
+  --bp-medium : 768px;
+  --bp-large : 1024px;
+  --bp-xlarge : 1440px;
  
 }

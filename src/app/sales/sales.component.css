@@ -1,5 +1,7 @@
 h1 { 
-  color : var(--purple)
+  color : var(--purple);
+  font-size : 2.3rem;
+  margin-top: 50px;
 }
 
 select { 
@@ -17,17 +19,21 @@ fa-icon{
   color: var(--green);
 }
 
-@media ( min-width: 550px ){
+@media ( min-width: 480px ){
   input {
-    width: 75%;
+    width: 65%;
   }
 
   select {
-    width: 75%;
+    width: 65%;
   }
 }
 
-@media ( min-width: 700px ) {
+@media ( min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+    margin-top:70px;
+  }
   input { 
     width: 25%;
     max-width: 250px;
