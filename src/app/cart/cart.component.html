@@ -4,20 +4,21 @@
 				<!--<h1 class="m-4">Carrito de compras</h1>-->
 		</div>
 
-		<div class="cart-body px-4">
+		<div class="cart-body px-4" *ngIf="productsOnCart.length > 0">
 			<div class="cart-cont border p-5 rounded-2">
 				<h3>Tu carrito</h3>
 				<p>
-					<span class="fw-bold">Productos :</span> 0 <br/>
+					<span class="fw-bold">Productos :</span> {{productsOnCart.length}} <br/>
 					<span class="fw-bold">Total a pagar: </span>  $0 USD
 				</p>
-				<button class="btn text-white">Realizar compra</button>
+				<button class="btn text-white" >Realizar compra</button>
 			</div>
 
 			<div class="cart-products ">
 				<!--<h3 >Lista de productos</h3>-->
-				<ul class="list-group mt-4 text-start">
-					<li class="list-group-item product-list-item ">
+				<ul class="list-group mt-4 text-start" >
+
+					<li class="list-group-item product-list-item mb-4  border">
 						<div class="product-item">
 							<div class="product-name ">Producto - 0 USD</div>
 							<div class="product-buttons "> 
@@ -30,11 +31,18 @@
 							<button class="btn"><fa-icon [icon]="faTrash"></fa-icon></button>
 						</div>
 					</li>
-				</ul>
-			</div>
 
+				</ul>
+				
+			</div>
+			
 		</div>
-		
+		<div class="empty-cart" *ngIf="productsOnCart.length == 0">
+			<fa-icon [icon]="faShoppingCart" class="mb-4"></fa-icon>
+			<h4 >Ups! Tu carrito está vacío </h4>
+			<a href="/ventas">Ir al catálogo</a>
+		</div>
+
 
 </div>
 

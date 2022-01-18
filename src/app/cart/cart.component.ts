@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faAngleDown, faAngleUp, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp, faTrash, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart',
@@ -17,5 +17,10 @@ export class CartComponent implements OnInit {
   faAngleUp = faAngleUp;
   faAngleDown = faAngleDown;
   faTrash = faTrash;
+  faShoppingCart = faShoppingCart;
+
+
+  productsOnCart : any[] = [];
+  totalPrice : number = 0;
 
 }
