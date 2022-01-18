@@ -2,6 +2,10 @@ nav{
     background-color: var(--purple);
 }
 
+span > a {
+    text-decoration: none;
+}
+
 
 .navbar-toggler:focus,
 .navbar-toggler:active,
