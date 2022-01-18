@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-//import { FormControl, Validators } from '@angular/forms';
 import {faStore} from '@fortawesome/free-solid-svg-icons';
 
-import { ProductService } from '../product.service'
-import { Product } from '../product.model';
-import { Category } from '../categories.model';
+import { ProductService } from '../services/product.service'
+import { CartService } from '../services/cart.service';
+
+import { Product } from '../models/product.model';
+import { Category } from '../models/categories.model';
 
 @Component({
   selector: 'app-sales',
@@ -22,7 +23,8 @@ export class SalesComponent implements OnInit {
   searchPrice : string = '';
 
   constructor(
-    private productsService: ProductService
+    private productsService: ProductService,
+    private cartService: CartService
   ) {
   }
 
@@ -118,5 +120,11 @@ export class SalesComponent implements OnInit {
       }
 
     }
+  }
+
+  //Cart actions
+  
+  AddProduct( product : Product ) {
+    this.cartService.addCart(product)
   }
 }

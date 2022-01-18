@@ -4,6 +4,6 @@
 		<h5 class="card-title">{{product.name}}</h5>
 		<p class="card-text">Precio: {{product.price}}</p>
 		<p class="card-text">{{product.description}}</p>
-		<button class="btn text-white">Añadir al carrito <fa-icon [icon]="faCartPlus"></fa-icon></button>
+		<button class="btn text-white" (click)="addToCart()">Añadir al carrito <fa-icon [icon]="faCartPlus"></fa-icon></button>
 	</div>
 </div>

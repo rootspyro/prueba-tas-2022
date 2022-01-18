@@ -1,5 +1,9 @@
-import { Component } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { faShoppingCart, faBars, faStore} from "@fortawesome/free-solid-svg-icons"
+import { CartService } from "../services/cart.service";    
+import { map } from "rxjs/operators"
+import {Observable} from "rxjs";
+
 
 @Component({
     selector: "app-navbar",
@@ -7,9 +11,21 @@ import { faShoppingCart, faBars, faStore} from "@fortawesome/free-solid-svg-icon
     styleUrls: ["./navbar.component.css"]
 })
 
-export class NavbarComponent { 
+export class NavbarComponent implements OnInit {
+    
+    total$ : Observable<number> ;
+    
+    constructor( private cartService : CartService ) {
+        this.total$ = this.cartService.cart$
+        .pipe(
+            map( products => products.length )
+        )
+    }
 
-    cartLenght : number = 0
+    ngOnInit(){
+
+    }
+
 
     //icons
     faShoppingCart = faShoppingCart

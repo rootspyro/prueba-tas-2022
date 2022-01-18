@@ -14,7 +14,7 @@
 	</form>
 	<div class="products-view d-flex flex-wrap justify-content-center mt-5 ">
 		<div *ngFor="let product of filtredProducts" class="m-5 mb-5">
-			<app-product  [product]="product"></app-product>
+			<app-product [product]="product" (productClicked)="AddProduct($event)"></app-product>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faAngleDown, faAngleUp, faTrash, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,10 @@ import { faAngleDown, faAngleUp, faTrash, faShoppingCart } from '@fortawesome/fr
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  productsOnCart : Product[] = [];
+  totalPrice : number = 0;
+
+  constructor( ) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +24,8 @@ export class CartComponent implements OnInit {
   faShoppingCart = faShoppingCart;
 
 
-  productsOnCart : any[] = [];
-  totalPrice : number = 0;
+  recieveProducts($event : any[]) {
+    this.productsOnCart = $event;
+  }
 
 }
