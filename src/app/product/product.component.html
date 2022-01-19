@@ -2,8 +2,8 @@
 	<img src={{imgPathExample}} class="card-img-top" alt="...">
 	<div class="card-body">
 		<h5 class="card-title">{{product.name}}</h5>
-		<p class="card-text">Precio: {{product.price}}</p>
-		<p class="card-text">{{product.description}}</p>
-		<button class="btn text-white" (click)="addToCart()">Añadir al carrito <fa-icon [icon]="faCartPlus"></fa-icon></button>
+		<p class="card-text">Precio: <span>${{product.price}}</span></p>
+		<p class="card-text description">{{product.description}}</p>
+		<button [id]="product.id" class="btn text-white mt-2" (click)="addToCart()">Añadir al carrito <fa-icon [icon]="faCartPlus"></fa-icon></button>
 	</div>
 </div>

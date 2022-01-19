@@ -21,7 +21,7 @@
 					<li *ngFor="let product of productsOnCart; index as i" class="list-group-item product-list-item mb-4  border">
 						<div class="product-item">
 
-							<div class="product-name ">{{product.name}} - ${{calculatePrice(product)}} </div>
+							<div class="product-name ">{{product.name}} - <span class="fw-normal">${{calculatePrice(product)}}</span> </div>
 							<div class="product-buttons "> 
 								<button class="add-product btn" (click)="addProduct(product)"><fa-icon [icon]="faAngleUp"></fa-icon></button>  
 								{{product.quantity}}

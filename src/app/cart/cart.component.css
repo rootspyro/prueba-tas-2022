@@ -64,6 +64,14 @@
 
 .product-name { font-weight: bold; color: var(--purple);}
 
+.product-name span {
+  color: var(--secondary);
+}
+
+.product-buttons button {
+  color: var(--gray-dark);
+}
+
 .delete-product {
   text-align:center;
   width: 100%;

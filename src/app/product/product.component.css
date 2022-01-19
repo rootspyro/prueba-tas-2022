@@ -1,7 +1,31 @@
-button { 
-  background-color: var(--green);
+.card-body { 
+  color: var(--purple);
+  text-align: center;
 }
 
-button:hover {
+.card-body .description {
+  color:  var(--gray-dark);
+}
+
+span {
+  color: var(--secondary);
+}
+
+.card-body button { 
+  background-color: var(--green);
+  margin-bottom: 15px;
+}
+
+.card-body button:hover {
   background-color: var(--green-hover);
 } 
+
+@media ( min-width: 768px ) {
+  .card-body {
+    text-align: left;
+  }
+
+  .card-body button {
+    margin-bottom: 0;
+  }
+}
