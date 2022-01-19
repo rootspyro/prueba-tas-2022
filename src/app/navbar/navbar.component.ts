@@ -13,13 +13,12 @@ import {Observable} from "rxjs";
 
 export class NavbarComponent implements OnInit {
     
-    total$ : Observable<number> ;
+    total : number  = 0;
     
     constructor( private cartService : CartService ) {
-        this.total$ = this.cartService.cart$
-        .pipe(
-            map( products => products.length )
-        )
+       this.cartService.cart$.subscribe( products =>{
+           this.total = this.cartService.calculateProducts(products)
+        } )
     }
 
     ngOnInit(){
