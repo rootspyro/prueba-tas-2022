@@ -26,7 +26,7 @@ Una vez clonado el proyecto podrás acceder al directorio prueba-tecnica.
 ### 2. Correr en local
 
 ```shell
-$ npm install && ng serve
+$ npm install &&  npm start
 ```
 
 La primer parte descarga las dependencias npm y finalmente inicia el proyecto en entorno desarrollo. 
