@@ -1,7 +1,7 @@
 # Prueba TAS 2022: WebApp
 
 Aplicación web de prueba basada en el desarrollo de un ecommerce.
-La demostración la puedes consultar en el siguiente enlace [DEMO](http://prueba.crisostomo.soy)
+La demostración la puedes consultar en el siguiente enlace [DEMO](https://pruebatas-spyro.netlify.app/)
 
 ## Frameworks y tecnologías
 
